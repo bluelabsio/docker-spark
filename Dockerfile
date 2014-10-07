@@ -9,7 +9,7 @@ RUN apt-get update && \
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 ENV SCALA_VERSION 2.10.4
-ENV SPARK_VERSION 1.0.1
+ENV SPARK_VERSION 1.1.0
 ENV SCALA_HOME /opt/scala-$SCALA_VERSION
 ENV SPARK_HOME /opt/spark-$SPARK_VERSION
 ENV PATH $SPARK_HOME:$SCALA_HOME/bin:$PATH
@@ -20,8 +20,8 @@ RUN (cd / && gunzip < scala-$SCALA_VERSION.tgz)|(cd /opt && tar -xvf -)
 RUN rm /scala-$SCALA_VERSION.tgz
 
 # Install Spark 
-ADD http://d3kbcqa49mib13.cloudfront.net/spark-$SPARK_VERSION-bin-hadoop2.tgz /
-RUN (cd / && gunzip < spark-$SPARK_VERSION-bin-hadoop2.tgz)|(cd /opt && tar -xvf -)
-RUN (ln -s /opt/spark-$SPARK_VERSION-bin-hadoop2 /opt/spark-$SPARK_VERSION && rm /spark-$SPARK_VERSION-bin-hadoop2.tgz)
+ADD http://d3kbcqa49mib13.cloudfront.net/spark-$SPARK_VERSION-bin-hadoop2.4.tgz /
+RUN (cd / && gunzip < spark-$SPARK_VERSION-bin-hadoop2.4.tgz)|(cd /opt && tar -xvf -)
+RUN (ln -s /opt/spark-$SPARK_VERSION-bin-hadoop2.4 /opt/spark-$SPARK_VERSION && rm /spark-$SPARK_VERSION-bin-hadoop2.4.tgz)
 
 CMD $SPARK_HOME/bin/spark-shell
