@@ -4,7 +4,7 @@ MAINTAINER Chelsea Zhang <chelsea@bluelabs.com>
 # Based on https://github.com/amplab/docker-scripts/blob/master/spark-1.0.0/spark-base/Dockerfile
 
 RUN apt-get update && \
-    apt-get install -q -y wget openjdk-7-jre-headless && \
+    apt-get install -q -y wget openjdk-7-jre-headless python && \
     apt-get clean
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
